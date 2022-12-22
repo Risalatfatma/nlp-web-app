@@ -12,3 +12,7 @@ def sentiment_analysis(text):
     return sentiment_analysis
 
 
+def abuse_detection(text):
+    abuse_detection = paralleldots.abuse(text)
+    return abuse_detection
+

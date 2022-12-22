@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Abuse Detection</title>
+</head>
+<body>
+    <form action="/perform_abuse_detection" method="post">
+        <label>Type Your text here: </label><br>
+        <textarea name="abuse_detection_text"></textarea><br><br>
+        <input type="submit" value="Perform Abuse Detection">
+    </form>
+    <p>{%print(response)%}</p>
+</body>
+</html>

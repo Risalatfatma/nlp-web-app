@@ -72,9 +72,27 @@ def perform_sentiment_analysis():
     return render_template('sentiment_analysis.html', response=response)
 
 
+@app.route('/abuse_detection')
+def abuse_detection():
+    return render_template('abuse_detection.html')
+
+
+@app.route('/perform_abuse_detection', methods=['post'])
+def perform_abuse_detection():
+    text = request.form.get('abuse_detection_text')
+    response = api.sentiment_analysis(text)
+    response = response['sentiment']
+    response = max(response, key=lambda x: response[x])
+    return render_template('abuse_detection.html', response=response)
+
+
+
 # nd=d['sentiment']
 # Key_max = max(nd, key = lambda x: nd[x])
 # Key_max
 app.run(debug=True)
 
 # print(max(response['sentiment']))
+#response = response['sentiment']
+#response = max(response, key=lambda x: response[x])
+#return render_template('abuse_detection.html', response=response)
